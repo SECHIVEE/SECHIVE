@@ -56,7 +56,7 @@ const slideshowImages = [
 ];
 
 const testText = "→ Security. Safety. Cash. Transport.";
-const subText = "PProfessional surveillance and protection for institutions, events, and high-value operations.";
+const subText = "Professional surveillance and protection for institutions, events, and high-value operations.";
 
 export function TypewriterTest() {
   const [typedText, setTypedText] = useState("");
@@ -72,18 +72,21 @@ export function TypewriterTest() {
     typeIndex.current = 0;
     subTypeIndex.current = 0;
     
+    let subInterval: ReturnType<typeof setInterval> | undefined;
+    let subTimeout: ReturnType<typeof setTimeout> | undefined;
+
     const mainInterval = setInterval(() => {
       if (typeIndex.current < testText.length) {
-        setTypedText((prev) => prev + testText.charAt(typeIndex.current));
         typeIndex.current++;
+        setTypedText(testText.slice(0, typeIndex.current));
       } else {
         clearInterval(mainInterval);
-        setTimeout(() => {
+        subTimeout = setTimeout(() => {
           setShowSubText(true);
-          const subInterval = setInterval(() => {
+          subInterval = setInterval(() => {
             if (subTypeIndex.current < subText.length) {
-              setTypedSubText((prev) => prev + subText.charAt(subTypeIndex.current));
               subTypeIndex.current++;
+              setTypedSubText(subText.slice(0, subTypeIndex.current));
             } else {
               clearInterval(subInterval);
             }
@@ -91,8 +94,12 @@ export function TypewriterTest() {
         }, 500);
       }
     }, 60);
-    
-    return () => clearInterval(mainInterval);
+
+    return () => {
+      clearInterval(mainInterval);
+      if (subInterval) clearInterval(subInterval);
+      if (subTimeout) clearTimeout(subTimeout);
+    };
   }, []);
   
   return (
