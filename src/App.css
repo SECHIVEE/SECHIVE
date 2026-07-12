@@ -543,3 +543,51 @@ transition: transform 10s cubic-bezier(0.4,0,0.2,1), opacity 8s;  transform: tra
   opacity: 0;
   pointer-events: none;
 }
+/* === Responsive nav + horizontal-overflow fix === */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.content-overlay {
+  width: 100% !important;
+}
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1em 0.4em;
+}
+@media (max-width: 1024px) {
+  .header-flex {
+    flex-wrap: wrap;
+  }
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.3em;
+    padding: 0.5em 0.8em 0.8em;
+  }
+  .main-nav.open {
+    display: flex;
+  }
+  .services-dropdown {
+    width: 100%;
+  }
+  .services-dropdown .dropdown-menu {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+  }
+}

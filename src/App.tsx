@@ -133,6 +133,7 @@ function App() {
   const [typedText, setTypedText] = useState("");
   const typeIndex = useRef(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     if (showWelcome && location.pathname === '/' && !showIntro) {
@@ -259,7 +260,20 @@ function App() {
         <header className={`main-header${showHeader ? '' : ' header-hidden'}`}>
           <div className="header-flex">
             <img src={sechiveLogo} alt="SECHIVE Logo" className="sechive-logo" />
-            <nav className="main-nav">
+            <button
+              className="nav-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded={mobileNavOpen}
+              onClick={() => setMobileNavOpen((o) => !o)}
+            >
+              ☰
+            </button>
+            <nav
+              className={mobileNavOpen ? "main-nav open" : "main-nav"}
+              onClick={(e) => {
+                if ((e.target as HTMLElement).closest("a")) setMobileNavOpen(false);
+              }}
+            >
               <Link to="/" className="nav-link">Home</Link>
               <Link to="/elite-security" className="nav-link">Elite Security</Link>
               <Link to="/quality-innovation" className="nav-link">Quality & Innovation</Link>
