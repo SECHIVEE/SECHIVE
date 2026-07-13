@@ -1,7 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./BrandGalleryModal.css";
 
-export default function BrandGalleryModal({ logos, initialIndex, onClose }) {
+interface BrandLogo {
+  src: string;
+  alt: string;
+}
+
+interface BrandGalleryModalProps {
+  logos: readonly BrandLogo[];
+  initialIndex: number;
+  onClose: () => void;
+}
+
+export default function BrandGalleryModal({ logos, initialIndex, onClose }: BrandGalleryModalProps) {
   const [current, setCurrent] = useState(initialIndex);
 
   const prevLogo = () => setCurrent((current - 1 + logos.length) % logos.length);

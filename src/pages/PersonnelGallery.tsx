@@ -1,4 +1,3 @@
-import React from 'react';
 import './PersonnelGallery.css';
 
 import guard2 from '../assets/personnel/guard2.jpeg';

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './TypewriterTest.css';
 
 const testText = "This is a typewriter test — animated text should appear here.";

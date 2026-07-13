@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./BrandsBar.css";
 import BrandGalleryModal from "./BrandGalleryModal";
 
@@ -42,7 +42,7 @@ export default function BrandsBar() {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalIndex, setModalIndex] = useState(0);
 
-  const openModal = idx => {
+  const openModal = (idx: number) => {
     setModalIndex(idx);
     setModalOpen(true);
   };
@@ -52,7 +52,7 @@ export default function BrandsBar() {
     <>
       <div className="brands-bar-glass">
         {brandLogos.map((logo, idx) => (
-          <div className="brand-logo-container" key={idx} onClick={() => openModal(idx)} style={{ cursor: 'pointer' }}>
+          <div className="brand-logo-container" key={logo.alt} onClick={() => openModal(idx)} style={{ cursor: 'pointer' }}>
             <img src={logo.src} alt={logo.alt} className="brand-logo-img" />
           </div>
         ))}

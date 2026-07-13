@@ -1,4 +1,3 @@
-import React from "react";
 import "./HomeFeaturesSection.css";
 import { FaClock, FaComments, FaTruck, FaPhoneAlt, FaMicrochip, FaUserShield } from "react-icons/fa";
 

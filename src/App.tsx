@@ -19,7 +19,7 @@ import samco from './assets/wallpaper/samco.png';
 import security_girl2 from './assets/wallpaper/security_girl2.jpg';
 import k9 from './assets/wallpaper/k9.jpeg';
 
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import BrandsBar from './components/BrandsBar';
 import HomeFeaturesSection from './components/HomeFeaturesSection';
 import { useLocation, Routes, Route, Link } from 'react-router-dom';
@@ -53,6 +53,24 @@ import PersonnelGallery from './pages/PersonnelGallery';
 const slideshowImages = [
   compound1, innovo, response, compound2, fedex, security1, security_girl1,
   owner, iguall, cctv1, kasrawy, cctv2, security2, samco, security_girl2, k9,
+];
+
+const introRoutes = [
+  '/',
+  '/elite-security',
+  '/quality-innovation',
+  '/training-development',
+  '/company-history',
+  '/products-services',
+  '/corporate-security',
+  '/industrial-security',
+  '/event-security',
+  '/tourism-security',
+  '/healthcare-security',
+  '/monitoring-response',
+  '/security-consulting',
+  '/target-market',
+  '/current-partnerships'
 ];
 
 const testText = "→ Security. Safety. Cash. Transport.";
@@ -159,24 +177,6 @@ function App() {
       setShowWelcome(false);
     }
   }, [location.pathname, showIntro]);
-
-  const introRoutes = [
-    '/',
-    '/elite-security',
-    '/quality-innovation',
-    '/training-development',
-    '/company-history',
-    '/products-services',
-    '/corporate-security',
-    '/industrial-security',
-    '/event-security',
-    '/tourism-security',
-    '/healthcare-security',
-    '/monitoring-response',
-    '/security-consulting',
-    '/target-market',
-    '/current-partnerships'
-  ];
 
   useEffect(() => {
     setShowIntro(introRoutes.includes(location.pathname));

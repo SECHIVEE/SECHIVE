@@ -1,16 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './ProductAndServices.css';
-import { Link } from 'react-router-dom';
-
-const services = [
-  { label: 'Corporate & Commercial Security', anchor: 'corporate' },
-  { label: 'Industrial & Manufacturing Security', anchor: 'industrial' },
-  { label: 'Event & Crowd Security', anchor: 'event' },
-  { label: 'Tourism & Hospitality Security', anchor: 'tourism' },
-  { label: 'Healthcare & Educational Security', anchor: 'healthcare' },
-  { label: '24/7 Monitoring & Rapid Response', anchor: 'monitoring' },
-  { label: 'Integrated Security Consulting', anchor: 'consulting' },
-];
 
 const ProductAndServices: React.FC = () => {
   // Scroll to section if hash is present in URL
